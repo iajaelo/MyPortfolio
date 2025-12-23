@@ -1344,3 +1344,18 @@ textarea.form-input {
     opacity: 0.8;
     transform: scale(1.01); /* Optional: slight zoom effect */
 }
+
+.responsive-img {
+    width: 100%;       /* Takes up the full width of the mobile screen */
+    max-width: 500px;  /* Keeps it from getting too huge on a desktop */
+    height: auto;      /* Maintains the aspect ratio so it doesn't look squished */
+    display: block;
+    margin: 15px 0;    /* Adds some space above and below the image */
+    border-radius: 8px; /* Optional: makes it look more modern */
+}
+
+/* Optional: Add a hover effect for the link */
+.gallery-link:hover img {
+    opacity: 0.9;
+    filter: brightness(1.1);
+}
