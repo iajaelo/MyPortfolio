@@ -1359,3 +1359,39 @@ textarea.form-input {
     opacity: 0.9;
     filter: brightness(1.1);
 }
+
+/* Base styles for the avatar */
+.sidebar-avatar {
+  width: 100px; /* Default size */
+  height: auto;
+  border-radius: 20px; /* Adjust based on your preferred style */
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile specific adjustment (using a Media Query) */
+@media (max-width: 580px) {
+  .sidebar-info {
+    display: flex;
+    flex-direction: column; /* Stack image and text on small phones */
+    align-items: center;    /* Center everything */
+    gap: 15px;
+  }
+
+  .sidebar-avatar {
+    width: 120px; /* Slightly larger on mobile for better visibility */
+  }
+  
+  .avatar-box {
+    margin: 0 auto; /* Centers the image box */
+  }
+
+  .info-content {
+    text-align: center; /* Centers your name and titles */
+  }
+}
+
+.name {
+  margin-bottom: 10px;
+  font-size: 1.5rem; /* Makes your name the clear focal point */
+}
