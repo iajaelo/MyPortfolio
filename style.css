@@ -86,7 +86,7 @@ html { font-family: var(--ff-poppins); }
 body {
     /* The first gradient acts as the 'black cover'. 0.8 is the opacity (80% black) */
     /* The second part is your minimalist textured image */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                     url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfD0X_DSUG7AGEDvEHKj7XPCVjpi2jIrOTV0LlqJVt9A&s=10);
     
     background-size: cover;        /* Ensures the background covers the whole screen */
@@ -226,6 +226,8 @@ article { display: none; }
         z-index: -1;
     }
 
+
+
 /*ASIDE - SIDEBAR*/
 
 .sidebar {
@@ -243,7 +245,6 @@ article { display: none; }
     align-items: center;
     gap: 15px;
 }
-
 
 
 .avatar-box {
@@ -361,6 +362,8 @@ article { display: none; }
 
     .social-item .social-link:hover { color: var(--light-gray); }
 
+
+
 /*NAVBAR*/
 
 .navbar {
@@ -393,6 +396,7 @@ article { display: none; }
 
     .navbar-link:hover, .navbar-link:focus { color: var(--light-gray70); }
     .navbar-link.active { color: var(--orange-yellow-crayola); }
+
 
 
 /*ABOUT*/
@@ -618,38 +622,6 @@ article { display: none; }
     font-weight: var(--fw300);
     line-height: 1.6;
 }
-
-/*CLIENTS*/
-
-.clients { margin-bottom: 15px; }
-
-.clients-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 15px;
-    margin: 0 -15px;
-    padding: 25px;
-    padding-bottom: 25px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: 25px;
-}
-
-.clients-item {
-    min-width: 50%;
-    scroll-snap-align: start;
-}
-
-    .clients-item img {
-        width: 100%;
-        filter: grayscale(1);
-        transition: var(--transition1);
-    }
-
-        .clients-item img:hover { filter: grayscale(0);}
 
 
 /*PORTFOLIO*/
