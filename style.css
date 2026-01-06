@@ -86,7 +86,7 @@ html { font-family: var(--ff-poppins); }
 body {
     /* The first gradient acts as the 'black cover'. 0.8 is the opacity (80% black) */
     /* The second part is your minimalist textured image */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
                     url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfD0X_DSUG7AGEDvEHKj7XPCVjpi2jIrOTV0LlqJVt9A&s=10);
     
     background-size: cover;        /* Ensures the background covers the whole screen */
