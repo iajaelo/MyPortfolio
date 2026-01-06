@@ -83,7 +83,20 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black); }
+body {
+    /* The first gradient acts as the 'black cover'. 0.8 is the opacity (80% black) */
+    /* The second part is your minimalist textured image */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfD0X_DSUG7AGEDvEHKj7XPCVjpi2jIrOTV0LlqJVt9A&s=10);
+    
+    background-size: cover;        /* Ensures the background covers the whole screen */
+    background-position: center;   /* Centers the texture */
+    background-attachment: fixed;  /* Keeps the background still while you scroll (slick effect) */
+    background-repeat: no-repeat;
+    
+    /* Fallback color if image fails to load */
+    background-color: var(--smoky-black); 
+}
 
 main {
     margin: 15px 12px;
@@ -310,13 +323,17 @@ article { display: none; }
 }
 
 .contact-info {
-    max-width: calc(100% - 46px);
-    width: calc(100% - 46px);
+    max-width: calc(100% - 64px);
+    width: 100%;
 }
 
     .contact-info :is(.contact-link, time, address) {
         color: var(--white2);
         font-size: var(--fs7);
+        white-space: nowrap;      /* Prevents text from jumping to the next line */
+        overflow: hidden;         /* Hides overflow if sidebar is too narrow */
+        text-overflow: ellipsis;  /* Adds '...' if the text is too long */
+        display: block;
     }
 
     .contact-info address { font-style: normal; }
@@ -377,6 +394,7 @@ article { display: none; }
     .navbar-link:hover, .navbar-link:focus { color: var(--light-gray70); }
     .navbar-link.active { color: var(--orange-yellow-crayola); }
 
+
 /*ABOUT*/
 
 .about .article-title { 
@@ -396,7 +414,14 @@ article { display: none; }
         text-align: justify;
         padding-left: 10px;
         padding-right: 10px;
-     }
+    }
+
+
+.about-text strong {
+  font-weight: 600;
+  color: var(--vegas-gold);
+}
+
 
 .service { margin-bottom: 35px; }
 
@@ -898,7 +923,7 @@ textarea.form-input {
     .sidebar, article {
         width: 520px;
         margin-inline: auto;
-        padding: 30px;
+        padding: 20px;
     }
 
     .article-title {
@@ -1249,7 +1274,7 @@ textarea.form-input {
 
     .sidebar-info { flex-direction: column; }
 
-    .avatar-box img { width: 150px; }
+    .avatar-box img { width: 230px; }
 
     .info-content .name {
         white-space: nowrap;
@@ -1312,7 +1337,7 @@ textarea.form-input {
 
 
 .service-item-text strong {
-    color: #84b4b1; /* This matches your header color */
+    color: var(--orange-yellow-crayola); /* This matches your header color */
     font-weight: 600; /* Adjusts how thick the bolding is */
 }
 
@@ -1362,9 +1387,9 @@ textarea.form-input {
 
 /* Base styles for the avatar */
 .sidebar-avatar {
-  width: 100px; /* Default size */
+  width: 150px; /* Default size */
   height: auto;
-  border-radius: 20px; /* Adjust based on your preferred style */
+  border-radius: 10px; /* Adjust based on your preferred style */
   object-fit: cover;
   display: block;
 }
@@ -1379,7 +1404,7 @@ textarea.form-input {
   }
 
   .sidebar-avatar {
-    width: 120px; /* Slightly larger on mobile for better visibility */
+    width: 150px; /* Slightly larger on mobile for better visibility */
   }
   
   .avatar-box {
@@ -1394,4 +1419,397 @@ textarea.form-input {
 .name {
   margin-bottom: 10px;
   font-size: 1.5rem; /* Makes your name the clear focal point */
+}
+
+.company-link {
+    display: inline; /* Keeps it on the same line as the title */
+    color: var(--light-gray); /* Matches your paragraph text */
+    text-decoration: underline; /* Standard for links, or use 'none' for a cleaner look */
+    text-decoration-color: var(--orange-yellow-crayola); /* Underline matches your gold theme */
+    transition: var(--transition1);
+}
+
+.company-link:hover {
+    color: var(--orange-yellow-crayola); /* Glows gold when hovered */
+}
+
+
+.company-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between logo and text */
+    vertical-align: middle;
+}
+
+.company-logo {
+    width: 20px;  /* Small enough to fit the line height */
+    height: 20px;
+    object-fit: contain;
+    border-radius: 1px; /* Optional: rounds corners of the logo */
+    filter: grayscale(20%); /* Optional: softens the colors to match your theme */
+}
+
+/* Ensure the link stays inline */
+.company-link {
+    display: inline;
+}
+
+
+
+/*TIMELINE*/
+/* --- UPDATED TIMELINE (Portfolio Match) --- */
+
+.cd-container {
+    width: 100%;
+    max-width: 100%;
+    background: transparent; /* Remove the extra gray background */
+    padding: 0;
+}
+
+#cd-timeline {
+    position: relative;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* The Vertical Line - Centered on the 40px icon */
+#cd-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30px; 
+    height: 100%;
+    width: 2px;
+    background: var(--jet); /* Matches your border color */
+}
+
+.cd-timeline-block {
+    position: relative;
+    margin: 30px 0;
+}
+
+/* The Logo Container (The Node) */
+.cd-timeline-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px; /* Matches your sidebar box style */
+    background: var(--eerie-black-1);
+    border: 1px solid var(--jet);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+}
+
+.cd-timeline-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The Content Card - Matches your .service-item style */
+.cd-timeline-content {
+    position: relative;
+    margin-left: 65px;
+    background: var(--bg-gradient-jet);
+    border: 1px solid var(--jet);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--shadow-2);
+}
+
+/* Triangle Pointer */
+.cd-timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 13px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-right: 7px solid var(--jet);
+}
+
+.cd-timeline-content h2 {
+    color: var(--white-2);
+    font-size: var(--fs-4);
+    margin-bottom: 10px;
+}
+
+/* Info Bar (Title & Date) */
+.timeline-content-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs-8);
+}
+
+.timeline-content-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cd-timeline-content p {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    line-height: 1.6;
+}
+
+/* Desktop adjustment to keep it left-aligned within your layout */
+@media only screen and (min-width: 1170px) {
+    .cd-timeline-content {
+        width: auto; /* Overrides the 36% from the example */
+        margin: 0 0 0 65px;
+    }
+    #cd-timeline::before {
+        left: 20px;
+        margin-left: 0;
+    }
+    .cd-timeline-img {
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+
+/* Interactive Hover Effects for Timeline */
+
+/* 1. Lift and Border Glow for the card */
+.cd-timeline-block {
+    transition: var(--transition1);
+}
+
+.cd-timeline-content {
+    transition: var(--transition1);
+    cursor: default;
+}
+
+.cd-timeline-block:hover .cd-timeline-content {
+    transform: translateY(-5px);
+    border-color: var(--orange-yellow-crayola);
+    box-shadow: var(--shadow-3);
+}
+
+/* 2. Scale and Glow for the Logo Node */
+.cd-timeline-img {
+    transition: var(--transition1);
+}
+
+.cd-timeline-block:hover .cd-timeline-img {
+    transform: scale(1.1);
+    border-color: var(--orange-yellow-crayola);
+    box-shadow: 0 0 10px var(--orange-yellow-crayola);
+}
+
+/* 3. Icon animation inside the card */
+.timeline-content-info span ion-icon {
+    transition: var(--transition1);
+}
+
+.cd-timeline-block:hover .timeline-content-info span ion-icon {
+    color: var(--white-2);
+    transform: rotate(10deg);
+}
+
+/* 4. Smooth transition for the company link */
+.cd-timeline-content h4 a {
+    transition: var(--transition1);
+}
+
+.cd-timeline-block:hover .cd-timeline-content h4 a {
+    color: var(--orange-yellow-crayola);
+}
+
+
+/* Subtle Interactive Hover Effects for Portfolio Projects */
+
+/* Container for the individual project */
+.slide {
+    transition: var(--transition1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Hover effect for the link wrapper */
+.slide a {
+    transition: var(--transition1);
+}
+
+/* Subtle scale and lift effect */
+.slide:hover {
+    transform: translateY(-5px); /* Lifts the project slightly */
+}
+
+/* Image specific interaction */
+.slide img {
+    transition: var(--transition1);
+    border-radius: 8px; /* Keeps your existing rounded look */
+}
+
+.slide:hover img {
+    transform: scale(1.02); /* Very subtle zoom */
+    filter: brightness(1.1); /* Slight glow effect */
+    box-shadow: var(--shadow3); /* Adds depth on hover */
+}
+
+/* Highlight the project title on hover */
+.slide:hover .service-item-text strong {
+    color: var(--orange-yellow-crayola); /* Changes text to your accent gold */
+    transition: var(--transition1);
+}
+
+
+/*FOOTER*/
+.footer {
+  background: var(--eerie-black2);
+  border-top: 1px solid var(--jet);
+  padding: 30px 15px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.copyright {
+  color: var(--white2);
+  font-size: var(--fs7);
+  font-weight: var(--fw500);
+}
+
+.footer-social-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-social-link {
+  color: var(--light-gray70);
+  font-size: 20px;
+  transition: var(--transition1);
+}
+
+.footer-social-link:hover {
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-3px);
+}
+
+.footer-tagline {
+  color: var(--light-gray70);
+  font-size: var(--fs8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+}
+
+
+
+.timeline-content-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--onyx);
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: var(--fs9);
+    color: var(--light-gray70);
+}
+
+.timeline-content-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Ensure icons in the timeline are gold */
+.timeline-content-info ion-icon {
+    color: var(--orange-yellow-crayola);
+    font-size: 16px;
+}
+
+
+
+
+
+/* --- GALLERY THEME INTEGRATION --- */
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gallery-row {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacks on mobile */
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    background: var(--border-gradient-onyx); /* Matches your cards */
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: var(--shadow2);
+    overflow: hidden;
+    z-index: 1;
+    transition: var(--transition1);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: var(--bg-gradient-jet); /* Theme-consistent dark background */
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.gallery-img {
+    width: 100%;
+    border-radius: 12px;
+    transition: var(--transition1);
+    filter: grayscale(0.2); /* Subtle stylistic touch */
+}
+
+/* Hover Effects */
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow3);
+}
+
+.gallery-item:hover .gallery-img {
+    filter: grayscale(0);
+    transform: scale(1.03);
+}
+
+/* Responsive Desktop Layout */
+@media (min-width: 768px) {
+    .gallery-row {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet/desktop */
+    }
 }

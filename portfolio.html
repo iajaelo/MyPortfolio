@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ike Ajaelo</title>
+    <link rel="shortcut icon" href="https://i.postimg.cc/9fqYVvxh/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #84b4b1;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+            --gray: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Back-to-home navbar */
+        .back-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(132, 180, 177, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: #84b4b1;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #6fa09c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(132, 180, 177, 0.3);
+        }
+
+        .back-btn ion-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Push main content down so it’s not hidden under fixed nav */
+        body {
+            padding-top: 80px; /* Adjust based on nav height */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .service-title {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .service-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .service-item-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .project-slider-container {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 1.5rem;
+            padding: 1rem;
+            background: white;
+        }
+
+        .slide {
+            flex: 0 0 calc(50% - 0.75rem);
+            min-width: 0;
+        }
+
+        .slide a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+
+        .slide a:hover {
+            transform: translateY(-8px);
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            aspect-ratio: 16 / 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .slide p {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back to Home Navigation -->
+    <nav class="back-nav">
+        <a href="index.html" class="back-btn">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            Back to Home
+        </a>
+    </nav>
+    <section class="container service">
+        <h3 class="h3 service-title">Portfolio</h3>
+        <p class="service-item-text">Here are a few personal projects I’ve worked on. Click on the images to view them live.</p>
+
+        <div class="project-slider-container">
+            <div class="slider-wrapper">
+                <!-- Project 1 -->
+                <div class="slide">
+                    <a href="https://smarthomeenergyusagedata-app-n2ce2ckpbgbdlwpeatndtw.streamlit.app/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/Sensor.png" alt="Smart Home Energy Usage Data App">
+                        <p>Smart Home Energy Usage Data App</p>
+                    </a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="slide">
+                    <a href="https://zarabusinesssalesdata-7ktfjggaajru6gt8qrvyry.streamlit.app/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/ZaraSales.png" alt="Clothing Sales Data Analysis">
+                        <p>Clothing Sales Data Analysis</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

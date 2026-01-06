@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Ike Ajaelo</title>
+    <link rel="shortcut icon" href="https://i.postimg.cc/9fqYVvxh/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #84b4b1;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+            --gray: #555;
+            --error: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Back-to-home navbar */
+        .back-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(132, 180, 177, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: #84b4b1;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #6fa09c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(132, 180, 177, 0.3);
+        }
+
+        .back-btn ion-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Push main content down so it’s not hidden under fixed nav */
+        body {
+            padding-top: 80px; /* Adjust based on nav height */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(132, 180, 177, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 160px;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .submit-btn:hover {
+            background: #6fa09c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(132, 180, 177, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-status {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            min-height: 1.5em;
+        }
+
+        .form-status.success { color: #27ae60; }
+        .form-status.error   { color: var(--error); }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Home Navigation -->
+    <nav class="back-nav">
+        <a href="index.html" class="back-btn">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            Back to Home
+        </a>
+    </nav>
+    <div class="container">
+        <h1>Get In Touch</h1>
+
+        <div class="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/mjgvzknj" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" placeholder="Subject (optional)">
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" placeholder="How can I help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span>Send Message</span>
+                    </button>
+
+                    <div class="form-status" id="form-status"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const statusDiv = document.getElementById('form-status');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    statusDiv.textContent = 'Message sent successfully! Thank you.';
+                    statusDiv.className = 'form-status success';
+                    form.reset();
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                statusDiv.textContent = 'Sorry, something went wrong. Please try again.';
+                statusDiv.className = 'form-status error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    </script>
+</body>
+</html>
