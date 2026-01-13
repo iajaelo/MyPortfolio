@@ -86,8 +86,8 @@ html { font-family: var(--ff-poppins); }
 body {
     /* The first gradient acts as the 'black cover'. 0.8 is the opacity (80% black) */
     /* The second part is your minimalist textured image */
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
-                    url(images/17450.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.74)), 
+                    url(images/6006295.jpg);
     
     background-size: cover;        /* Ensures the background covers the whole screen */
     background-position: center;   /* Centers the texture */
@@ -1465,9 +1465,9 @@ textarea.form-input {
     position: absolute;
     top: 0;
     left: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px; /* Matches your sidebar box style */
+    width: 50px;
+    height: 50px;
+    border-radius: 8px; /* Matches your sidebar box style */
     background: var(--eerie-black-1);
     border: 1px solid var(--jet);
     display: flex;

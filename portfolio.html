@@ -7,13 +7,26 @@
     <link rel="shortcut icon" href="https://i.postimg.cc/9fqYVvxh/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #84b4b1;
-            --dark: #2c3e50;
-            --light: #f9f9f9;
-            --gray: #555;
+            --primary-dark: #6fa09c;
+            --bg-gradient-onyx: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
+            --bg-gradient-jet: linear-gradient(to bottom right, hsla(240, 1%, 18%, .251) 3%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
+            --bg-gradient-yellow2: linear-gradient(135deg, hsla(45, 100%, 71%, .251) 0%, hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%);
+            --jet: hsl(0, 0%, 22%);
+            --onyx: hsl(240, 1%, 17%);
+            --eerie-black1: hsl(240, 2%, 13%);
+            --eerie-black2: hsl(240, 2%, 12%);
+            --smoky-black: hsl(0, 0%, 7%);
+            --white2: hsl(0, 0%, 98%);
+            --orange-yellow-crayola: hsl(45, 100%, 72%);
+            --light-gray: hsl(0, 0%, 84%);
+            --transition1: .25s ease;
+            --shadow1: -4px 8px 24px hsla(0, 0%, 0%, .25);
+            --shadow2: 0px 16px 30px hsla(0, 0%, 0%, .25);
+            --shadow3: 0px 16px 40px hsla(0, 0%, 0%, .25);
         }
 
         * {
@@ -23,10 +36,11 @@
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            background: var(--light);
-            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient-jet);
+            color: var(--white2);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         /* Back-to-home navbar */
@@ -35,15 +49,15 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(18, 18, 18, 0.85);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(132, 180, 177, 0.2);
+            border-bottom: 1px solid var(--jet);
             z-index: 1000;
             padding: 1rem 2rem;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow1);
         }
 
         .back-btn {
@@ -51,27 +65,29 @@
             align-items: center;
             gap: 0.6rem;
             padding: 0.6rem 1.2rem;
-            background: #84b4b1;
-            color: white;
+            background: var(--bg-gradient-onyx);
+            color: var(--white2);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: var(--transition1);
+            box-shadow: var(--shadow1);
         }
 
         .back-btn:hover {
-            background: #6fa09c;
+            background: var(--bg-gradient-yellow2);
+            color: var(--orange-yellow-crayola);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(132, 180, 177, 0.3);
+            box-shadow: var(--shadow3);
         }
 
         .back-btn ion-icon {
             font-size: 1.3rem;
+            color: var(--orange-yellow-crayola);
         }
 
-        /* Push main content down so it’s not hidden under fixed nav */
         body {
-            padding-top: 80px; /* Adjust based on nav height */
+            padding-top: 80px;
         }
 
         .container {
@@ -82,46 +98,49 @@
 
         .service-title {
             font-size: 2.2rem;
-            color: var(--dark);
-            margin-bottom: 2rem;
+            font-weight: 600;
+            color: var(--white2);
+            margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
         }
 
         .service-title::after {
             content: '';
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background: var(--primary);
+            background: var(--orange-yellow-crayola);
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
+            border-radius: 2px;
         }
 
         .service-item-text {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 2.5rem;
             text-align: center;
         }
 
         .project-slider-container {
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: var(--shadow2);
+            background: var(--eerie-black1);
         }
 
         .slider-wrapper {
             display: flex;
             transition: transform 0.5s ease;
-            gap: 1.5rem;
-            padding: 1rem;
-            background: white;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: var(--eerie-black2);
         }
 
         .slide {
-            flex: 0 0 calc(50% - 0.75rem);
+            flex: 0 0 calc(50% - 1rem);
             min-width: 0;
         }
 
@@ -129,32 +148,42 @@
             display: block;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.3s ease;
+            transition: var(--transition1);
         }
 
         .slide a:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
         }
 
         .slide img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
             object-fit: cover;
             aspect-ratio: 16 / 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow1);
+            transition: var(--transition1);
+        }
+
+        .slide a:hover img {
+            box-shadow: var(--shadow3);
+            transform: scale(1.02);
         }
 
         .slide p {
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--white2);
             text-align: center;
+            font-size: 1.15rem;
         }
 
         @media (max-width: 768px) {
             .slide {
                 flex: 0 0 100%;
+            }
+            .container {
+                padding: 4rem 1rem 2rem;
             }
         }
     </style>
@@ -168,6 +197,7 @@
             Back to Home
         </a>
     </nav>
+
     <section class="container service">
         <h3 class="h3 service-title">Portfolio</h3>
         <p class="service-item-text">Here are a few personal projects I’ve worked on. Click on the images to view them live.</p>
@@ -192,5 +222,9 @@
             </div>
         </div>
     </section>
+
+    <!-- IonIcons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

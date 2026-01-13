@@ -7,14 +7,26 @@
     <link rel="shortcut icon" href="https://i.postimg.cc/9fqYVvxh/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #84b4b1;
-            --dark: #2c3e50;
-            --light: #f9f9f9;
-            --gray: #555;
-            --error: #e74c3c;
+            --primary-dark: #6fa09c;
+            --bg-gradient-jet: linear-gradient(to bottom right, hsla(240, 1%, 18%, .251) 3%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
+            --bg-gradient-onyx: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
+            --bg-gradient-yellow2: linear-gradient(135deg, hsla(45, 100%, 71%, .251) 0%, hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%);
+            --jet: hsl(0, 0%, 22%);
+            --onyx: hsl(240, 1%, 17%);
+            --eerie-black1: hsl(240, 2%, 13%);
+            --eerie-black2: hsl(240, 2%, 12%);
+            --smoky-black: hsl(0, 0%, 7%);
+            --white2: hsl(0, 0%, 98%);
+            --orange-yellow-crayola: hsl(45, 100%, 72%);
+            --light-gray: hsl(0, 0%, 84%);
+            --transition1: .25s ease;
+            --shadow1: -4px 8px 24px hsla(0, 0%, 0%, .25);
+            --shadow2: 0px 16px 30px hsla(0, 0%, 0%, .25);
+            --shadow3: 0px 16px 40px hsla(0, 0%, 0%, .25);
         }
 
         * {
@@ -24,10 +36,11 @@
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            background: var(--light);
-            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient-jet);
+            color: var(--white2);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         /* Back-to-home navbar */
@@ -36,15 +49,15 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(18, 18, 18, 0.85);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(132, 180, 177, 0.2);
+            border-bottom: 1px solid var(--jet);
             z-index: 1000;
             padding: 1rem 2rem;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow1);
         }
 
         .back-btn {
@@ -52,27 +65,29 @@
             align-items: center;
             gap: 0.6rem;
             padding: 0.6rem 1.2rem;
-            background: #84b4b1;
-            color: white;
+            background: var(--bg-gradient-onyx);
+            color: var(--white2);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: var(--transition1);
+            box-shadow: var(--shadow1);
         }
 
         .back-btn:hover {
-            background: #6fa09c;
+            background: var(--bg-gradient-yellow2);
+            color: var(--orange-yellow-crayola);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(132, 180, 177, 0.3);
+            box-shadow: var(--shadow3);
         }
 
         .back-btn ion-icon {
             font-size: 1.3rem;
+            color: var(--orange-yellow-crayola);
         }
 
-        /* Push main content down so it’s not hidden under fixed nav */
         body {
-            padding-top: 80px; /* Adjust based on nav height */
+            padding-top: 80px;
         }
 
         .container {
@@ -83,17 +98,18 @@
 
         h1 {
             font-size: 2.5rem;
-            color: var(--dark);
+            font-weight: 600;
+            color: var(--white2);
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
         }
 
         h1::after {
             content: '';
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background: var(--primary);
+            background: var(--orange-yellow-crayola);
             position: absolute;
             bottom: -12px;
             left: 50%;
@@ -102,16 +118,17 @@
         }
 
         .contact-form {
-            background: white;
+            background: var(--eerie-black1);
             padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            box-shadow: var(--shadow2);
+            border: 1px solid var(--jet);
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 1.75rem;
         }
 
         .form-group.full {
@@ -120,27 +137,29 @@
 
         label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--gray);
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            color: var(--light-gray);
+            font-size: 0.95rem;
         }
 
         input,
         textarea {
             width: 100%;
-            padding: 1rem 1.25rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            padding: 1.1rem 1.4rem;
+            border: 1px solid var(--jet);
+            border-radius: 10px;
             font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
+            background: var(--eerie-black2);
+            color: var(--white2);
+            transition: all var(--transition1);
         }
 
         input:focus,
         textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(132, 180, 177, 0.15);
+            box-shadow: 0 0 0 3px rgba(132, 180, 177, 0.2);
         }
 
         textarea {
@@ -150,29 +169,31 @@
 
         .submit-btn {
             grid-column: 1 / -1;
-            padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
+            padding: 1.1rem 2.5rem;
+            background: var(--bg-gradient-onyx);
+            color: var(--white2);
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition1);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
+            box-shadow: var(--shadow1);
         }
 
         .submit-btn:hover {
-            background: #6fa09c;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(132, 180, 177, 0.3);
+            background: var(--bg-gradient-yellow2);
+            color: var(--smoky-black);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow3);
         }
 
         .submit-btn:disabled {
-            background: #ccc;
+            background: var(--jet);
             cursor: not-allowed;
             transform: none;
         }
@@ -185,20 +206,21 @@
             min-height: 1.5em;
         }
 
-        .form-status.success { color: #27ae60; }
-        .form-status.error   { color: var(--error); }
+        .form-status.success { color: #2ecc71; }
+        .form-status.error   { color: #e74c3c; }
 
         @media (max-width: 768px) {
             .form-grid {
                 grid-template-columns: 1fr;
             }
             .contact-form {
-                padding: 2rem;
+                padding: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
+
     <!-- Back to Home Navigation -->
     <nav class="back-nav">
         <a href="index.html" class="back-btn">
@@ -206,6 +228,7 @@
             Back to Home
         </a>
     </nav>
+
     <div class="container">
         <h1>Get In Touch</h1>
 
@@ -242,6 +265,7 @@
         </div>
     </div>
 
+    <!-- Form submission script -->
     <script>
         const form = document.getElementById('contact-form');
         const submitBtn = document.getElementById('submit-btn');
@@ -275,5 +299,9 @@
             }
         });
     </script>
+
+    <!-- IonIcons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
