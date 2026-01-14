@@ -9,31 +9,33 @@
 </head>
 <body>
     <main>
-        <aside class="sidebar" data-sidebar>
+        <aside class="sidebar" data-sidebar aria-label="Profile Sidebar">
             <div class="sidebar-info">
                 <figure class="avatar-box">
-                    <img src="https://i.postimg.cc/yN81kHtS/CJ.jpg" alt="Ike Ajaelo" class="sidebar-avatar">
+                    <img src="https://i.postimg.cc/yN81kHtS/CJ.jpg" alt="Ike Ajaelo's profile photo" class="sidebar-avatar">
                 </figure>
 
                 <div class="info-content">
                     <h1 class="name" title="Ike Ajaelo">Ike Ajaelo</h1>
-                    <p class="title">Data Engineer</p>
-                    <p class="title">Robotic Systems Engineer</p>
-                    <p class="title">Project Manager</p>
-                    <p class="title">Innovator</p>
+                    <div class="titles">
+                        <p class="title">Data Engineer</p>
+                        <p class="title">Robotic Systems Engineer</p>
+                        <p class="title">Project Manager</p>
+                        <p class="title">Innovator</p>
+                    </div>
                 </div>
 
-                <button class="info-more-btn" data-sidebar-btn>
+                <button class="info-more-btn" data-sidebar-btn aria-expanded="false" aria-controls="sidebar-info-more">
                     <span>Show Contacts</span>
                     <ion-icon name="chevron-down"></ion-icon>
                 </button>
             </div>
 
-            <div class="sidebar-info-more">
+            <div class="sidebar-info-more" id="sidebar-info-more">
                 <div class="separator"></div>
                 <ul class="contacts-list">
                     <li class="contact-item">
-                        <a href="mailto:ike.ajaelo@gmail.com" class="icon-box">
+                        <a href="mailto:ike.ajaelo@gmail.com" class="icon-box" aria-label="Email Ike Ajaelo">
                             <ion-icon name="mail-outline"></ion-icon>
                         </a>
                         <div class="contact-info">
@@ -42,7 +44,9 @@
                         </div>
                     </li>
                     <li class="contact-item">
-                        <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
+                        <div class="icon-box" aria-hidden="true">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
                         <div class="contact-info">
                             <p class="contact-title">Location</p>
                             <address>Bay Area, California, USA</address>
@@ -51,8 +55,16 @@
                 </ul>
                 <div class="separator"></div>
                 <ul class="social-list">
-                    <li class="social-item"><a href="https://www.linkedin.com/in/ike-ajaelo-pmp-b7685328b/" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-github"></ion-icon></a></li>
+                    <li class="social-item">
+                        <a href="https://www.linkedin.com/in/ike-ajaelo-pmp-b7685328b/" class="social-link" aria-label="LinkedIn Profile">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="#" class="social-link" aria-label="GitHub Profile">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>

@@ -1785,3 +1785,117 @@ textarea.form-input {
         grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet/desktop */
     }
 }
+
+
+
+
+/* Sidebar Mobile Optimizations */
+@media (max-width: 580px) {
+    .sidebar {
+        width: 100%;                  /* Full-width on mobile */
+        max-width: 100%;              /* Prevent overflow */
+        margin: 0 auto;               /* Center if needed */
+        padding: 12px;                /* Reduced padding */
+        border-radius: 12px;          /* Softer corners */
+    }
+
+    .sidebar-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;          /* Center content vertically */
+        text-align: center;
+    }
+
+    .avatar-box {
+        width: 140px;                 /* Smaller avatar on mobile */
+        height: 160px;
+        border-radius: 1%;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar-avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .name {
+        font-size: var(--fs-3);       /* Slightly smaller heading */
+        margin-bottom: 0.5rem;
+    }
+
+    .titles {
+        display: flex;
+        flex-direction: column;       /* Stack titles vertically */
+        gap: 0.25rem;
+    }
+
+    .title {
+        font-size: var(--fs-6);       /* Smaller title font */
+        margin: 0;
+    }
+
+    .info-more-btn {
+        margin-top: 1rem;
+        font-size: var(--fs-7);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+    }
+
+    .sidebar-info-more {
+        max-height: 0;                /* Ensure it collapses properly */
+        overflow: hidden;
+        transition: max-height var(--transition-2);
+    }
+
+    .sidebar.active .sidebar-info-more {
+        max-height: 300px;            /* Limit height to prevent overflow on small screens */
+    }
+
+    .contacts-list {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .contact-info {
+        margin-left: 0;               /* Remove left margin on mobile */
+    }
+
+    .social-list {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
+
+/* General Sidebar Tweaks (all screens) */
+.sidebar {
+    transition: var(--transition-2);
+}
+
+.sidebar-info-more {
+    transition: max-height var(--transition-2);
+    overflow: hidden;
+}
+
+.sidebar.active .sidebar-info-more {
+    max-height: 500px;                /* Desktop max height */
+}
+
+/* Toggle Button ARIA Support (in JS, but CSS for visual feedback) */
+.info-more-btn[aria-expanded="true"] {
+    color: var(--orange-yellow-crayola);
+}
+
+.info-more-btn[aria-expanded="true"] ion-icon {
+    transform: rotate(180deg);
+}

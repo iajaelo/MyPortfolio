@@ -230,7 +230,12 @@ form.addEventListener('submit', async function(e) {
             formStatus.className = 'form-status';
             formBtn.innerHTML = '<ion-icon name="paper-plane-outline"></ion-icon><span>Send Message</span>';
         }, 5000);
-    }
+    } 
+});
 
-    
+// Existing sidebar toggle
+sidebarBtn.addEventListener("click", function() {
+    elementToggleFunc(sidebar);  // Toggles 'active' class
+    const isExpanded = sidebar.classList.contains('active');
+    sidebarBtn.setAttribute('aria-expanded', isExpanded);
 });
